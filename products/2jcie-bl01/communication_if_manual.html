@@ -40,11 +40,12 @@
     <div class="container theme-showcase" role="main">
       <p>
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-xs-3">
             <img src="../../images/2jcie-bl01_s.png" class="img-rounded img-responsive" alt="Logo">
           </div>
-          <div class="col-xs-10">
-            <h1>Environment Sensor : 2JCIE-BL01</h1>
+          <div class="col-xs-9">
+            <h1>Environment Sensor</h1>
+            <h2>2JCIE-BL01</h2>
             <p class="lead">Communication Interface Manual v1.3</p>
           </div>
         </div>
@@ -188,14 +189,14 @@
       <br />
       <hr>
       <h2 id="idx-01-03">1.3. Operation flow</h2>
-      <p>According to set Beacon Mode, there are two operation patterns with and without measured data recording. The sensor data measurement and recording to flash memory are carried out regardless of whether they are connected or disconnected to/from the Central device. Further details of Beacon Mode are described in 3. Advertise format.</p>
+      <p>According to set Beacon Mode, there are two operation patterns with and without measured data recording. The sensor data measurement and recording to flash memory are carried out regardless of whether they are connected or disconnected to/from the Central device. Further details of Beacon Mode are described in <em><a href="#idx-03">3. Advertise format</a></em>.</p>
       <img src="../../images/operation_flow.png" class="img-responsive img-thumbnail" alt="Operation flow">
       <p>
         <span class="label label-default">Figure 1.</span> Operation flow
       </p>
       <br />
       <h3 id="idx-01-03-01">1.3.1 With Data Recording mode</h3>
-      <p>The following Beacon Modes operate with data recording to the flash memory. To activate data recording, 2.3.1 Time Information must be set from the Central device first. Time information is cleared to zero (0) again when the Measurement Interval is changed, Beacon Mode is changed, battery is exchanged or power is reset. In these cases, it is necessary to set Time Information again to restart data recording．</p>
+      <p>The following Beacon Modes operate with data recording to the flash memory. To activate data recording, <em><a href="#idx-02-03-01">2.3.1 Time Information</a></em> must be set from the Central device first. Time information is cleared to zero (0) again when the Measurement Interval is changed, Beacon Mode is changed, battery is exchanged or power is reset. In these cases, it is necessary to set Time Information again to restart data recording．</p>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -275,9 +276,7 @@
             </tr>
             <tr>
               <td>0x05</td>
-              <td>Limited Broadcaster 2
-                <
-              </td>
+              <td>Limited Broadcaster 2</td>
               <td>EP</td>
               <td>EP-BL01</td>
             </tr>
@@ -540,7 +539,7 @@
     <div class="well well-sm">*Properties (R : Read，W : Write，N : Notify，I：Indicate) </div>
     <br />
     <h3 id="idx-02-01-01">2.1.1 Latest data (Characteristics UUID: 0x3001)</h3>
-    <p>Measured sensor data is updated every measurement interval and reflected in Latest data. The measurement interval can be changed in 2.2.1 Measurement interval.</p>
+    <p>Measured sensor data is updated every measurement interval and reflected in Latest data. The measurement interval can be changed in <em><a href="#idx-02-02-01">2.2.1 Measurement interval</a></em>.</p>
     <p>In addition to regular update in set measurement interval, when sensor is disconnected from Central devices, the measurement is immediately carried out then the contents of this characteristics is updated. However, in case of immediate data measurement, this measured data is not saved to the memory and row number is not updated.</p>
     <div class="panel panel-default">
       <!-- Default panel contents -->
@@ -669,11 +668,11 @@
     </div>
     <div class="well well-sm">
       <p>(*1) In the operation with data recording mode, the value is always zero unless Time information is set.</p>
-      <p>(*2) Discomfort Index, Heatstroke risk factor（WBGT approximation）are calculated only by temperature and humidity. These information is just a rough indication and for referential use only.</p>
+      <p>(*2) Discomfort Index, Heatstroke risk factor (WBGT approximation) are calculated only by temperature and humidity. These information is just a rough indication and for referential use only.</p>
     </div>
     <br />
     <h3 id="idx-02-01-02">2.1.2 Latest page (Characteristics UUID: 0x3002)</h3>
-    <p>The Latest page shows the latest page and row information of the memory as the progress status of data recording. The Central device can acquire the past memory data by referring to the difference between the page information at the previous data retrieving and this latest page information． Table 9. Latest page format
+    <p>The Latest page shows the latest page and row information of the memory as the progress status of data recording. The Central device can acquire the past memory data by referring to the difference between the page information at the previous data retrieving and this latest page information．</p>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -745,8 +744,8 @@
       </div>
       <br />
       <h3 id="idx-02-01-03">2.1.3 Request page (Characteristics UUID: 0x3003)</h3>
-      <p>Specify the page number to retrieve the measured data from the flash memory. The result of retrieving from the memory for the page specified in this Characteristic will be set in 2.1.4 Response flag and the past measured data will be set in 2.1.5 Response data. </p>
-      <div class="well well-sm">* Note: Memory recording of measured data is not started unless 2.3.1 Time information is set.</div>
+      <p>Specify the page number to retrieve the measured data from the flash memory. The result of retrieving from the memory for the page specified in this Characteristic will be set in <em><a href="#idx-02-01-04">2.1.4 Response flag</a></em> and the past measured data will be set in <em><a href="#idx-02-01-05">2.1.5 Response data</a></em>. </p>
+      <div class="well well-sm">* Note: Memory recording of measured data is not started unless <em><a href="#idx-02-03-01">2.3.1 Time information</a></em> is set.</div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -784,8 +783,8 @@
       </div>
       <br />
       <h3 id="idx-02-01-04">2.1.4 Response flag (Characteristics UUID: 0x3004)</h3>
-      <p>When requesting page and row number is set in 2.1.3 Request page, 2.1.5 Response Data will be updated with retrieved measured data. Whether the update is successfully completed or not can be known by the Update flag of this Characteristic. In addition, updating of this Characteristic is done in the page basis, confirmation in the row basis is unnecessary. </p>
-      <div class="well well-sm">* Note: Memory recording of measured data is not started unless 2.3.1 Time information is set．</div>
+      <p>When requesting page and row number is set in <em><a href="#idx-02-01-03">2.1.3 Request page</a></em>, <em><a href="#idx-02-01-05">2.1.5 Response Data</a></em> will be updated with retrieved measured data. Whether the update is successfully completed or not can be known by the Update flag of this Characteristic. In addition, updating of this Characteristic is done in the page basis, confirmation in the row basis is unnecessary. </p>
+      <div class="well well-sm">* Note: Memory recording of measured data is not started unless <em><a href="#idx-02-03-01">2.3.1 Time information</a></em> is set．</div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -835,8 +834,8 @@
       </div>
       <br />
       <h3 id="idx-02-01-05">2.1.5 Response data (Characteristics UUID: 0x3005)</h3>
-      <p>Retrieved memory data in the page and row specified in 2.1.3 Request page will be updated in this characteristic. Correct data acquisition can be made after the update flag becomes "Completed" in 2.1.5　Response flag. Also, by reading this Characteristic, the data of the next row in the same page is automatically set to this Characteristic (descending order Row 12 to Row 0). Therefore, it is unnecessary to specify 2.1.3 Request page for each row, and all row in the same page can be read by continuous Read of this Characteristic. However, since automatic retrieving across pages is not performed, when moving to the next page, it is necessary to specify the page number again to 2.1.3 Request page and confirm the 2.1.4 Response flag each time. </p>　
-      <div class="well well-sm">* Note: Memory recording of measured data is not started unless 2.3.1 Time information is set．</div>
+      <p>Retrieved memory data in the page and row specified in <em><a href="#idx-03">2.1.3 Request page</a></em> will be updated in this characteristic. Correct data acquisition can be made after the update flag becomes "Completed" in <em><a href="#idx-02-01-05">2.1.5 Response flag</a></em>. Also, by reading this Characteristic, the data of the next row in the same page is automatically set to this Characteristic (descending order Row 12 to Row 0). Therefore, it is unnecessary to specify <em><a href="#idx-02-01-03">2.1.3 Request page</a></em> for each row, and all row in the same page can be read by continuous Read of this Characteristic. However, since automatic retrieving across pages is not performed, when moving to the next page, it is necessary to specify the page number again to <em><a href="#idx-02-01-03">2.1.3 Request page</a></em> and confirm the <em><a href="#idx-02-01-04">2.1.4 Response flag</a></em> each time. </p>　
+      <div class="well well-sm">* Note: Memory recording of measured data is not started unless <em><a href="#idx-02-03-01">2.3.1 Time information</a></em> is set．</div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -966,7 +965,7 @@
         <span class="label label-default">Figure 2.</span> Operation flow of data retrieving from flash memory
       </p>
       <div class="well well-sm">
-        <p>(*1) The information of the latest page can be acquire from 2.1.2 Latest page or the page information in advertisement data.</p>
+        <p>(*1) The information of the latest page can be acquire from <em><a href="#idx-02-01-02">2.1.2 Latest page</a></em> or the page information in advertisement data.</p>
         <p>(*2) While the result of reading Response flag is 0x00: Retrieving, try reading Response flag until updating is completed.</p>
         <p>(*3) If the result of reading Response flag is 0x02: Fail and updating is not completed after 3 times of retry, the data in the flash memory may be corrupted. In this case skip the corresponding page and obtain the data of the next page.</p>
       </div>
@@ -2363,7 +2362,8 @@
       </div>
       <br />
       <h3 id="idx-02-03-03">2.3.3 Error status (Characteristics UUID: 0x3033)</h3>
-      <p>Various error conditions of the sensor are indicated by a bit field. The error state can be reset by writing 0 from the Central device. *Just reading this characteristic does not reset the state. </p>　
+      <p>Various error conditions of the sensor are indicated by a bit field. The error state can be reset by writing 0 from the Central device. </p>　
+      <div class="well well-sm">* Just reading this characteristic does not reset the state. </div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -2506,7 +2506,7 @@
       </div>
       <br />
       <h3 id="idx-02-04-01">2.4.1 UUIDs (Characteristics UUID: 0x3041)</h3>
-      <p>Specify UUID to be sent in Beacon Mode = Beacon(Advertise Format (A))． </p>　
+      <p>Specify UUID to be sent in Beacon Mode = <em><a href="#idx-03-01">Beacon(Advertise Format (A))</a></em>． </p>　
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -2602,7 +2602,8 @@
       </div>
       <br />
       <h3 id="idx-02-04-02">2.4.2 ADV setting (Characteristics UUID: 0x3042)</h3>
-      <p>Set various Advertisement related parameters. Time Information is cleared to zero (0) when Beacon Mode is changed, so Time Information must be set to start data recording again. *After changing the settings of this characteristic, it is necessary to make power cycle by removing and inserting battery. </p>　
+      <p>Set various Advertisement related parameters. Time Information is cleared to zero (0) when Beacon Mode is changed, so Time Information must be set to start data recording again.  </p>　
+      <div class="well well-sm">* After changing the settings of this characteristic, it is necessary to make power cycle by removing and inserting battery. </div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -2679,7 +2680,7 @@
               <td>UInt8</td>
               <td>Range：0x00(0) to 0x0A(10)
                 <br />Default：0x08 (8)
-                <br />*Refer to Table 33. Beacon Mode for details</td>
+                <br />*Refer to <em>Table 33. Beacon Mode</em> for details</td>
             </tr>
             <tr>
               <td>9</td>
@@ -2780,7 +2781,7 @@
           </table>
         </div>
       </div>
-      <div class="well well-sm">* (A to E): refer to 3. Advertise Format for more details</div>
+      <div class="well well-sm">* (A to E): refer to <em><a href="idx-03">3. Advertise Format</a></em> for more details</div>
       <br />
       <hr>
       <h2 id="idx-02-05">2.5. DFU Service (Service UUID: 0x3050)</h2>
@@ -3441,7 +3442,10 @@
           <p class="list-group-item-text">This format contains Flag, Local Name, and latest sensor data.</p>
         </a>
       </div>
-      <div class="well well-sm">* The Battery Voltage (Battery voltage) in Advertise Format shall be expressed as follows. ((Acquired value + 100) x 10) mV</div>
+      <div class="well well-sm">
+        <p>* The Battery Voltage (Battery voltage) in Advertise Format shall be expressed as follows.</p>
+        <p> Battery Voltage = ((Acquired value + 100) x 10) mV</p>
+      </div>
       <br />
       <hr>
       <h2 id="idx-03-01">3.1. (A) Beacon</h2>
