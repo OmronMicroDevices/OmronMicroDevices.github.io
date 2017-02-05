@@ -1,0 +1,3592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OMRON Micro Devices - Main page">
+    <meta name="author" content="">
+    <link rel="icon" href="../../images/favicon.ico">
+    <title>OMRON Micro Devices</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Custom styles for this template -->
+    <link href="../../css/custom.min.css" rel="stylesheet">
+    <link href="../../css/theme.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    <!--
+    #cat1 {
+      padding-left: 20px;
+    }
+    #cat2 {
+      padding-left: 40px;
+    }
+    .table-vcenter td,th {
+   vertical-align: middle!important;
+}
+    -->
+    </style>
+  </head>
+  <body>
+    <!-- Fixed navbar -->
+    <div id="navbar"></div>
+    <!-- Content -->
+    <div class="container theme-showcase" role="main">
+      <p>
+        <div class="row">
+          <div class="col-xs-2">
+            <img src="../../images/2jcie-bl01_s.png" class="img-rounded img-responsive" alt="Logo">
+          </div>
+          <div class="col-xs-10">
+            <h1>Environment Sensor : 2JCIE-BL01</h1>
+            <p class="lead">Communication Interface Manual v1.3</p>
+          </div>
+        </div>
+      </p>
+      <hr>
+      <div id="markdown_content" src="./communication_if_manual.md"></div>
+      <div class="panel-group" role="tablist">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+            <h2 class="panel-title">
+              <a href="#collapseListGroup1" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1">Table of Contents </a>
+            </h2>
+          </div>
+          <div class="panel-collapse collapse in" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
+            <div class="list-group">
+              <a href="#idx-01" class="list-group-item active">1. Introduction</a>
+              <a href="#idx-01-01" class="list-group-item" id="cat1">
+                <strong>1.1. Scope</strong>
+              </a>
+              <a href="#idx-01-02" class="list-group-item" id="cat1">
+                <strong>1.2. Communication Interface</strong>
+              </a>
+              <a href="#idx-01-03" class="list-group-item" id="cat1">
+                <strong>1.3. Operation flow</strong>
+              </a>
+              <a href="#idx-01-03-01" class="list-group-item" id="cat2">1.3.1 With Data Recording mode</a>
+              <a href="#idx-01-03-02" class="list-group-item" id="cat2">1.3.2 Without Data Recording mode</a>
+              <a href="#idx-01-03-03" class="list-group-item" id="cat2">1.3.3 Flash memory for data recording</a>
+              <a href="#idx-02" class="list-group-item active">
+                <span class="badge">7</span>2. GATT Services
+              </a>
+              <a href="#idx-02-01" class="list-group-item" id="cat1">
+                <span class="badge">6</span>
+                <strong>2.1. Sensor Service (Service UUID: 0x3000)</strong>
+              </a>
+              <a href="#idx-02-01-01" class="list-group-item" id="cat2">2.1.1 Latest data (Characteristics UUID: 0x3001)</a>
+              <a href="#idx-02-01-02" class="list-group-item" id="cat2">2.1.2 Latest page (Characteristics UUID: 0x3002)</a>
+              <a href="#idx-02-01-03" class="list-group-item" id="cat2">2.1.3 Request page (Characteristics UUID: 0x3003)</a>
+              <a href="#idx-02-01-04" class="list-group-item" id="cat2">2.1.4 Response flag (Characteristics UUID: 0x3004)</a>
+              <a href="#idx-02-01-05" class="list-group-item" id="cat2">2.1.5 Response data (Characteristics UUID: 0x3005)</a>
+              <a href="#idx-02-01-06" class="list-group-item" id="cat2">2.1.6 Event flag (Characteristics UUID: 0x3006)</a>
+              <a href="#idx-02-02" class="list-group-item" id="cat1">
+                <span class="badge">9</span>
+                <strong>2.2. Setting Service (Service UUID: 0x3010)</strong>
+              </a>
+              <a href="#idx-02-02-01" class="list-group-item" id="cat2">2.2.1 Measurement interval (Characteristics UUID: 0x3011)</a>
+              <a href="#idx-02-02-02" class="list-group-item" id="cat2">2.2.2 Temperature (Characteristics UUID: 0x3013)</a>
+              <a href="#idx-02-02-03" class="list-group-item" id="cat2">2.2.3 Relative humidity (Characteristics UUID: 0x3014)</a>
+              <a href="#idx-02-02-04" class="list-group-item" id="cat2">2.2.4 Ambient light (Characteristics UUID: 0x3015)</a>
+              <a href="#idx-02-02-05" class="list-group-item" id="cat2">2.2.5 UV Index (Characteristics UUID: 0x3016)</a>
+              <a href="#idx-02-02-06" class="list-group-item" id="cat2">2.2.6 Pressure (Characteristics UUID: 0x3017)</a>
+              <a href="#idx-02-02-07" class="list-group-item" id="cat2">2.2.7 Sound Noise (Characteristics UUID: 0x3018)</a>
+              <a href="#idx-02-02-08" class="list-group-item" id="cat2">2.2.8 Discomfort index (Characteristics UUID: 0x3019)</a>
+              <a href="#idx-02-02-09" class="list-group-item" id="cat2">2.2.9 Heat stroke (Characteristics UUID: 0x301A)</a>
+              <a href="#idx-02-03" class="list-group-item" id="cat1">
+                <span class="badge">4</span>
+                <strong>2.3. Control Service (Service UUID: 0x3030)</strong>
+              </a>
+              <a href="#idx-02-03-01" class="list-group-item" id="cat2">2.3.1 Time information (Characteristics UUID: 0x3031)</a>
+              <a href="#idx-02-03-02" class="list-group-item" id="cat2">2.3.2 LED on duration (Characteristics UUID: 0x3032)</a>
+              <a href="#idx-02-03-03" class="list-group-item" id="cat2">2.3.3 Error status (Characteristics UUID: 0x3033)</a>
+              <a href="#idx-02-03-04" class="list-group-item" id="cat2">2.3.4 Trigger (Characteristics UUID: 0x3034)</a>
+              <a href="#idx-02-04" class="list-group-item" id="cat1">
+                <span class="badge">2</span>
+                <strong>2.4. Parameter Service (Service UUID: 0x3040)</strong>
+              </a>
+              <a href="#idx-02-04-01" class="list-group-item" id="cat2">2.4.1 UUIDs (Characteristics UUID: 0x3041)</a>
+              <a href="#idx-02-04-02" class="list-group-item" id="cat2">2.4.2 ADV setting (Characteristics UUID: 0x3042)</a>
+              <a href="#idx-02-05" class="list-group-item" id="cat1">2.5. DFU Service (Service UUID: 0x3050)</a>
+              <a href="#idx-02-06" class="list-group-item" id="cat1">
+                <span class="badge">3</span>
+                <strong>2.6. Generic Access Service (Service UUID: 0x1800)</strong>
+              </a>
+              <a href="#idx-02-06-01" class="list-group-item" id="cat2">2.6.1 Device Name (Characteristics UUID: 0x2A00)</a>
+              <a href="#idx-02-06-02" class="list-group-item" id="cat2">2.6.2 Appearance (Characteristics UUID: 0x2A01)</a>
+              <a href="#idx-02-06-03" class="list-group-item" id="cat2">2.6.3 Peripheral Preferred Connection Parameters (Characteristics UUID: 0x2A04)</a>
+              <a href="#idx-02-07" class="list-group-item" id="cat1">
+                <span class="badge">5</span>
+                <strong>2.7. Device Information Service (Service UUID: 0x180A)</strong>
+              </a>
+              <a href="#idx-02-07-01" class="list-group-item" id="cat2">2.7.1 Model Number String (Characteristics UUID: 0x2A24)</a>
+              <a href="#idx-02-07-02" class="list-group-item" id="cat2">2.7.2 Serial Number String (Characteristics UUID: 0x2A25)</a>
+              <a href="#idx-02-07-03" class="list-group-item" id="cat2">2.7.3 Firmware Revision String (Characteristics UUID: 0x2A26)</a>
+              <a href="#idx-02-07-04" class="list-group-item" id="cat2">2.7.4 Hardware Revision String (Characteristics UUID: 0x2A27)</a>
+              <a href="#idx-02-07-05" class="list-group-item" id="cat2">2.7.5 Manufacturer Name String (Characteristics UUID: 0x2A29)</a>
+              <a href="#idx-03" class="list-group-item active">3. Advertise format</a>
+              <a href="#idx-03-01" class="list-group-item" id="cat1">
+                <strong>3.1. (A) Beacon</strong>
+              </a>
+              <a href="#idx-03-02" class="list-group-item" id="cat1">
+                <strong>3.2. (B) Connection Advertise 1</strong>
+              </a>
+              <a href="#idx-03-02-01" class="list-group-item" id="cat2">3.2.1 Advertise (ADV_IND)</a>
+              <a href="#idx-03-02-02" class="list-group-item" id="cat2">3.2.2 Scan Response (SCAN_RSP)</a>
+              <a href="#idx-03-03" class="list-group-item" id="cat1">
+                <strong>3.3. (C) Connection Advertise 2 (ADV_IND)</strong>
+              </a>
+              <a href="#idx-03-04" class="list-group-item" id="cat1">
+                <strong>3.4. (D) Sensor ADV 1 (ADV_IND)</strong>
+              </a>
+              <a href="#idx-03-05" class="list-group-item" id="cat1">
+                <strong>3.5. (E) Sensor ADV 2 (ADV_IND)</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h1 id="idx-01">1. Introduction</h1>
+      <br />
+      <hr>
+      <h2 id="idx-01-01">1.1. Scope</h2>
+      <p>This Communication I/F Manual applies to Environment Sensor type 2JCIE-BL01.</p>
+      <br />
+      <hr>
+      <h2 id="idx-01-02">1.2. Communication Interface</h2>
+      <p>Environment sensor communicates with a smartphone, tablet, etc. via Bluetooth&reg; low energy.</p>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 1.</span> GAP Role
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th colspan="2">GAP Role </th>
+            </tr>
+            <tr>
+              <td>Environment Sensor</td>
+              <td>Peripheral</td>
+            </tr>
+            <tr>
+              <td>Smartphone, Tablet or others</td>
+              <td>Central</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <hr>
+      <h2 id="idx-01-03">1.3. Operation flow</h2>
+      <p>According to set Beacon Mode, there are two operation patterns with and without measured data recording. The sensor data measurement and recording to flash memory are carried out regardless of whether they are connected or disconnected to/from the Central device. Further details of Beacon Mode are described in 3. Advertise format.</p>
+      <img src="../../images/operation_flow.png" class="img-responsive img-thumbnail" alt="Operation flow">
+      <p>
+        <span class="label label-default">Figure 1.</span> Operation flow
+      </p>
+      <br />
+      <h3 id="idx-01-03-01">1.3.1 With Data Recording mode</h3>
+      <p>The following Beacon Modes operate with data recording to the flash memory. To activate data recording, 2.3.1 Time Information must be set from the Central device first. Time information is cleared to zero (0) again when the Measurement Interval is changed, Beacon Mode is changed, battery is exchanged or power is reset. In these cases, it is necessary to set Time Information again to restart data recording．</p>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 2.</span> List of Beacon Mode with Data Recording
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Beacon Mode</th>
+              <th>Name</th>
+              <th>Shortened Device Name</th>
+              <th>Device Name</th>
+            </tr>
+            <tr>
+              <td>0x00</td>
+              <td>Event Beacon (SCAN RSP)</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+            </tr>
+            <tr>
+              <td>0x01</td>
+              <td>Standard Beacon</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+            </tr>
+            <tr>
+              <td>0x07</td>
+              <td>Alternate Beacon</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+            </tr>
+            <tr>
+              <td>0x08</td>
+              <td>Event Beacon (ADV)</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-01-03-02">1.3.2 Without Data Recording mode</h3>
+      <p>Since the measured data is not recorded to the flash memory in the following Beacon Modes, only Latest Data is updated．</p>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 3.</span> List of Beacon Mode without Data Recording
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Beacon Mode</th>
+              <th>Name</th>
+              <th>Shortened Device Name</th>
+              <th>Device Name</th>
+            </tr>
+            <tr>
+              <td>0x02</td>
+              <td>General Broadcaster 1</td>
+              <td>IM</td>
+              <td>IM-BL01</td>
+            </tr>
+            <tr>
+              <td>0x03</td>
+              <td>Limited Broadcaster 1</td>
+              <td>IM</td>
+              <td>IM-BL01</td>
+            </tr>
+            <tr>
+              <td>0x04</td>
+              <td>General Broadcaster 2</td>
+              <td>EP</td>
+              <td>EP-BL01</td>
+            </tr>
+            <tr>
+              <td>0x05</td>
+              <td>Limited Broadcaster 2
+                <
+              </td>
+              <td>EP</td>
+              <td>EP-BL01</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-01-03-03">1.3.3 Flash memory for data recording</h3>
+      <p>The flash memory consists of 2048 pages in total (from Page 0 to Page 2047), and the content of single page consists of UNIX TIME and 13 rows of measured data. The UNIX TIME indicates the measurement time at the first row of the page (Row 0), and from the first line onwards, it is possible to calculate the measurement time by adding the measurement interval to the UNIX TIME. When data is stored 13 times (from Row 0 to Row 12) in single page, a new page is created for the next measurement．</p>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 4.</span> Example of Memory contents: Page 1
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Items</th>
+              <th>Contents</th>
+              <th>Remarks</th>
+            </tr>
+            <tr>
+              <td>UNIX TIME</td>
+              <td>0x5685C180 (1451606400)</td>
+              <td>2016/1/1 0:00:00
+                <
+              </td>
+            </tr>
+            <tr>
+              <td>Measurement Interval</td>
+              <td>0x12C (300sec)</td>
+              <td>5 min. interval</td>
+            </tr>
+            <tr>
+              <td>Row 0</td>
+              <td>Sensor data</td>
+              <td>2016/1/1 0:00:00</td>
+            </tr>
+            <tr>
+              <td>Row 1</td>
+              <td>Sensor data</td>
+              <td>2016/1/1 0:05:00</td>
+            </tr>
+            <tr>
+              <td>Row 2</td>
+              <td>Sensor data</td>
+              <td>2016/1/1 0:10:00</td>
+            </tr>
+            <tr>
+              <td>&hellip;</td>
+              <td>&hellip;</td>
+              <td>&hellip;
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>Row 12</td>
+            <td>Sensor data</td>
+            <td>2016/1/1 1:00:00</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <span class="label label-default">Table 5.</span> Example of Memory contents: Page 2
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-vcenter">
+        <tbody>
+          <tr>
+            <th>Items</th>
+            <th>Contents</th>
+            <th>Remarks</th>
+          </tr>
+          <tr>
+            <td>UNIX TIME</td>
+            <td>0x5685D0BC (1451610300)</td>
+            <td>2016/1/1 1:05:00</td>
+          </tr>
+          <tr>
+            <td>Measurement Interval</td>
+            <td>0x12C (300sec)</td>
+            <td>5 min. interval</td>
+          </tr>
+          <tr>
+            <td>Row 0</td>
+            <td>Sensor data</td>
+            <td>2016/1/1 1:05:00</td>
+          </tr>
+          <tr>
+            <td>Row 1</td>
+            <td>Sensor data</td>
+            <td>2016/1/1 1:10:00</td>
+          </tr>
+          <tr>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+            <td>&hellip;</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <br />
+    <hr>
+    <h1 id="idx-02">2. GATT Services</h1>
+    <p>UUIDs of supported GATT services are shown below. Except public services defined by Bluetooth specification, full UUIDs of all the CUSTOM services and characteristics are based on the same Base UUID as follows．</p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Base UUID</div>
+      <div class="panel-body">0C4C
+        <strong>
+          <u>XXXX</u>
+        </strong>-7700-46F4-AA96D5E974E32A54
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <span class="label label-default">Table 6.</span> List of supported GATT Services
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>Service UUID</th>
+            <th>Service name</th>
+            <th>Number of Characteristics</th>
+          </tr>
+          <tr>
+            <td>0x3000</td>
+            <td>Sensor Service</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>0x3010</td>
+            <td>Setting Service</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>0x3030</td>
+            <td>Control Service</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>0x3040</td>
+            <td>Parameter Service</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>0x3050</td>
+            <td>DFU Service</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>0x1800 (Public)</td>
+            <td>Generic Access Service</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>0x1801 (Public)</td>
+            <td>Generic Attribute Service</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>0x180A (Public)</td>
+            <td>Device Information Service</td>
+            <td>5</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <br />
+    <hr>
+    <h2 id="idx-02-01">2.1. Sensor Service (Service UUID: 0x3000)</h2>
+    <p>Sensor Service is the service for the sensor data acquisition.</p>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <span class="label label-default">Table 7.</span> List of Characteristics in Sensor Service
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-vcenter">
+        <tbody>
+          <tr>
+            <th rowspan="2">Characteristics UUID</th>
+            <th rowspan="2">Characteristics</th>
+            <th colspan="4">Properties</th>
+            <th rowspan="2">Byte</th>
+          </tr>
+          <tr>
+            <th>R</th>
+            <th>W</th>
+            <th>N</th>
+            <th>I</th>
+          </tr>
+          <tr>
+            <td>0x3001</td>
+            <td>Latest data</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td>&#10004;</td>
+            <td></td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>0x3002</td>
+            <td>Latest page</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>0x3003</td>
+            <td>Request page</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>0x3004</td>
+            <td>Response flag</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>0x3005</td>
+            <td>Response data</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>0x3006</td>
+            <td>Event flag</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td>&#10004;</td>
+            <td></td>
+            <td>9</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="well well-sm">*Properties (R : Read，W : Write，N : Notify，I：Indicate) </div>
+    <br />
+    <h3 id="idx-02-01-01">2.1.1 Latest data (Characteristics UUID: 0x3001)</h3>
+    <p>Measured sensor data is updated every measurement interval and reflected in Latest data. The measurement interval can be changed in 2.2.1 Measurement interval.</p>
+    <p>In addition to regular update in set measurement interval, when sensor is disconnected from Central devices, the measurement is immediately carried out then the contents of this characteristics is updated. However, in case of immediate data measurement, this measured data is not saved to the memory and row number is not updated.</p>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <span class="label label-default">Table 8.</span> Latest data format
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-vcenter">
+        <tbody>
+          <tr>
+            <th >Byte </th>
+            <th colspan="2" >Field </th>
+            <th >Format </th>
+            <th >Contents </th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td colspan="2" >Row number / Sequence number</td>
+            <td>UInt8</td>
+            <td>With Data Recording: Range：0 to 12　(*1)
+              <br />Without Data Recording: Range：0 to 255
+            </td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td rowspan="2">Temperature</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：0.01 degC</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td rowspan="2" >Relative Humidity</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：0.01 %RH</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td rowspan="2" >Light</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：1 lx</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td rowspan="2" >UV Index</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：0.01</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td rowspan="2" >Barometric Pressure</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：0.1 hPa</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td rowspan="2" >Sound noise</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：0.01 dB</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td rowspan="2" >Discomfort Index (*2)</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：0.01</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td rowspan="2" >Heatstroke risk factor (*2)</td>
+            <td>L</td>
+            <td rowspan="2" >SInt16</td>
+            <td rowspan="2" >Unit：0.01 degC</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>H</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td rowspan="2" >Battery voltage</td>
+            <td>L</td>
+            <td rowspan="2" >UInt16</td>
+            <td rowspan="2" >Unit：1 mV</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>H</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="well well-sm">
+      <p>(*1) In the operation with data recording mode, the value is always zero unless Time information is set.</p>
+      <p>(*2) Discomfort Index, Heatstroke risk factor（WBGT approximation）are calculated only by temperature and humidity. These information is just a rough indication and for referential use only.</p>
+    </div>
+    <br />
+    <h3 id="idx-02-01-02">2.1.2 Latest page (Characteristics UUID: 0x3002)</h3>
+    <p>The Latest page shows the latest page and row information of the memory as the progress status of data recording. The Central device can acquire the past memory data by referring to the difference between the page information at the previous data retrieving and this latest page information． Table 9. Latest page format
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 9.</span> Latest page format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="4">UNIX TIME</td>
+              <td>0</td>
+              <td rowspan="4">UInt32</td>
+              <td rowspan="4">Created time of the latest page.
+                <br />Unit：1 sec
+                <br />Range：1970/1/1 0:00:01 to 2106/2/7 6:28:15
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td rowspan="2">Measurement interval</td>
+              <td>L</td>
+              <td rowspan="2">UInt16</td>
+              <td rowspan="2">Unit：1 sec
+                <br />Range：1 to 3600 sec</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td rowspan="2">Latest page</td>
+              <td>L</td>
+              <td rowspan="2">UInt16</td>
+              <td rowspan="2">Range：0 to 2047</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td colspan="2">Latest row</td>
+              <td>UInt8</td>
+              <td>Range：0 to 12</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-01-03">2.1.3 Request page (Characteristics UUID: 0x3003)</h3>
+      <p>Specify the page number to retrieve the measured data from the flash memory. The result of retrieving from the memory for the page specified in this Characteristic will be set in 2.1.4 Response flag and the past measured data will be set in 2.1.5 Response data. </p>
+      <div class="well well-sm">* Note: Memory recording of measured data is not started unless 2.3.1 Time information is set.</div>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 10.</span> Request page format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th colspan="2" >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="2" >Requesting Page No.</td>
+              <td>L</td>
+              <td rowspan="2" >UInt16</td>
+              <td rowspan="2" >Range：0 to 2047</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan="2" >Requesting Row No.</td>
+              <td>UInt8</td>
+              <td>Range：0 to 12</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-01-04">2.1.4 Response flag (Characteristics UUID: 0x3004)</h3>
+      <p>When requesting page and row number is set in 2.1.3 Request page, 2.1.5 Response Data will be updated with retrieved measured data. Whether the update is successfully completed or not can be known by the Update flag of this Characteristic. In addition, updating of this Characteristic is done in the page basis, confirmation in the row basis is unnecessary. </p>
+      <div class="well well-sm">* Note: Memory recording of measured data is not started unless 2.3.1 Time information is set．</div>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 11.</span> Response flag format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2" >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2" >Update flag</td>
+              <td>UInt8</td>
+              <td>0x00: Retrieving
+                <br />0x01: Completed
+                <br />0x02: Failed to retrieve data</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="4" >UNIX TIME</td>
+              <td>0</td>
+              <td rowspan="4" >UInt32</td>
+              <td rowspan="4" >Created time of this page.
+                <br />Unit：1 sec
+                <br />Range：1970/1/1 0:00:01 to 2106/2/7 6:28:15</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-01-05">2.1.5 Response data (Characteristics UUID: 0x3005)</h3>
+      <p>Retrieved memory data in the page and row specified in 2.1.3 Request page will be updated in this characteristic. Correct data acquisition can be made after the update flag becomes "Completed" in 2.1.5　Response flag. Also, by reading this Characteristic, the data of the next row in the same page is automatically set to this Characteristic (descending order Row 12 to Row 0). Therefore, it is unnecessary to specify 2.1.3 Request page for each row, and all row in the same page can be read by continuous Read of this Characteristic. However, since automatic retrieving across pages is not performed, when moving to the next page, it is necessary to specify the page number again to 2.1.3 Request page and confirm the 2.1.4 Response flag each time. </p>　
+      <div class="well well-sm">* Note: Memory recording of measured data is not started unless 2.3.1 Time information is set．</div>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 12.</span> Response data format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th colspan="2" >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2" >Row number</td>
+              <td>UInt8</td>
+              <td>Range：0 to 12</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2" >Temperature</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：0.01 degC</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2" >Relative Humidity</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：0.01 %RH</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2" >Light</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：1 lx</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2" >UV Index</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：0.01</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2" >Barometric Pressure</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：0.1 hPa</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2" >Sound noise</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：0.01 dB</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td rowspan="2" >Discomfort Index</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：0.01</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td rowspan="2" >Heatstroke risk factor</td>
+              <td>L</td>
+              <td rowspan="2" >SInt16</td>
+              <td rowspan="2" >Unit：0.01 degC</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td rowspan="2" >Battery voltage</td>
+              <td>L</td>
+              <td rowspan="2" >UInt16</td>
+              <td rowspan="2" >Unit：1 mV</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>H</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <p>Operation flow of data retrieving from flash memory is shown below.</p>
+      <img src="../../images/operation_flow_memory.png" class="img-responsive img-thumbnail" alt="Operation flow of data retrieving from flash memory">
+      <p>
+        <span class="label label-default">Figure 2.</span> Operation flow of data retrieving from flash memory
+      </p>
+      <div class="well well-sm">
+        <p>(*1) The information of the latest page can be acquire from 2.1.2 Latest page or the page information in advertisement data.</p>
+        <p>(*2) While the result of reading Response flag is 0x00: Retrieving, try reading Response flag until updating is completed.</p>
+        <p>(*3) If the result of reading Response flag is 0x02: Fail and updating is not completed after 3 times of retry, the data in the flash memory may be corrupted. In this case skip the corresponding page and obtain the data of the next page.</p>
+      </div>
+      <br />
+      <h3 id="idx-02-01-06">2.1.6 Event flag (Characteristics UUID: 0x3006)</h3>
+      <p>The state of occurrence of various events is represented by a bit field for each sensor. </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 13.</span> Event flag format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>Temperature</td>
+              <td>UInt8</td>
+              <td rowspan="8" >Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Relative Humidity</td>
+              <td>UInt8</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Light</td>
+              <td>UInt8</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>UV Index</td>
+              <td>UInt8</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Barometric Pressure</td>
+              <td>UInt8</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Sound noise</td>
+              <td>UInt8</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Discomfort Index</td>
+              <td>UInt8</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Heatstroke risk factor</td>
+              <td>UInt8</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Other events</td>
+              <td>UInt8</td>
+              <td>Bit 7-1 : RFU
+                <br />Bit 0 : Battery replacement
+              </td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="well well-sm">
+        <p>*
+          <strong>Simple threshold</strong>: The state where the latest acquisition data exceeds the set threshold.
+        </p>
+        <p>*
+          <strong>Changing trend</strong>:
+        </p>
+        <table class="table table-bordered table-condensed table-vcenter">
+        <tbody>
+          <tr>
+            <td>[term]</td>
+            <td>: The state in which there is at least one difference equal to or greater than set threshold between the latest data and the predetermined number of past data.</td>
+          </tr>
+          <tr>
+            <td>[previous]</td>
+            <td>: The stat in which the difference between the latest data and the previous data is equal to or greater than the set threshold.</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+      <img src="../../images/event_detection.png" class="img-responsive img-thumbnail" alt="Event detection">
+      <p>
+        <span class="label label-default">Figure 3.</span> Event detection
+      </p>
+      <br />
+      <hr>
+      <h2 id="idx-02-02">2.2. Setting Service (Service UUID: 0x3010)</h2>
+      <p>Read and Write the settings of each sensor.</p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 14.</span> List of Characteristics in Sensor Setting Service
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th rowspan="2" >Characteristics UUID </th>
+              <th rowspan="2" >Characteristics </th>
+              <th colspan="4" >Properties </th>
+              <th rowspan="2" >Byte </th>
+            </tr>
+            <tr>
+              <th >R </th>
+              <th >W </th>
+              <th >N </th>
+              <th >I </th>
+            </tr>
+            <tr>
+              <td>0x3011</td>
+              <td>Measurement interval</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>0x3013</td>
+              <td>Temperature</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>0x3014</td>
+              <td>Relative humidity</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>0x3015</td>
+              <td>Ambient light</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>0x3016</td>
+              <td>UV Index</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>0x3017</td>
+              <td>Pressure</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>0x3018</td>
+              <td>Sound noise</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>0x3019</td>
+              <td>Discomfort index</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>0x301A</td>
+              <td>Heat stroke</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>15</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-01">2.2.1 Measurement interval (Characteristics UUID: 0x3011)</h3>
+      <p>Specify measurement interval in seconds．（Common to all sensors） Time information is cleared to zero (0) when changing the measurement interval, so it is necessary to set the time again to start data recording. </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 15.</span> Measurement interval format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th colspan="2" >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="2" >Measurement interval</td>
+              <td>L</td>
+              <td rowspan="2" >UInt16</td>
+              <td rowspan="2" >Unit：1 sec
+                <br />Range：1 to 3600 sec
+                <br />Default：300 sec (0x012C)
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>H</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <p>The possible recording period are shown in Table 16.</p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 16.</span> Relationship between Measurement interval and possible recording period
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Measurement interval </th>
+              <th >Recording period (hour) </th>
+              <th >Recording period (day) </th>
+            </tr>
+            <tr>
+              <td>1 sec</td>
+              <td>7.4 hour</td>
+              <td>0.3 days</td>
+            </tr>
+            <tr>
+              <td>10 sec</td>
+              <td>74 hour</td>
+              <td>3.0 days</td>
+            </tr>
+            <tr>
+              <td>30 sec</td>
+              <td>222 hour</td>
+              <td>9.2 days</td>
+            </tr>
+            <tr>
+              <td>60 sec</td>
+              <td>444 hour</td>
+              <td>18 days</td>
+            </tr>
+            <tr>
+              <td>300 sec</td>
+              <td>2219 hour</td>
+              <td>92 days</td>
+            </tr>
+            <tr>
+              <td>600 sec</td>
+              <td>4437 hour</td>
+              <td>185 days</td>
+            </tr>
+            <tr>
+              <td>3600 sec</td>
+              <td>26624 hour</td>
+              <td>1109 days</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-02">2.2.2 Temperature (Characteristics UUID: 0x3013)</h3>
+      <p>Temperature sensor related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 17.</span> Temperature format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="8">SInt16</td>
+              <td rowspan="8">Unit：0.01 degC
+                <br />Range：0.01 to 30.00 degC
+                <br />Default：0x00C8 (2.00 degC)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="4">SInt16</td>
+              <td rowspan="2">Unit：0.01 degC
+                <br />Range：-10.00 to 60.00 degC
+                <br />Default：0x0DAC (35.00 degC)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]</td>
+              <td>L</td>
+              <td rowspan="2">Unit：0.01 degC
+                <br />Range：-10.00 to 60.00 degC
+                <br />Default：0x03E8 (10.00 degC)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-03">2.2.3 Relative humidity (Characteristics UUID: 0x3014)</h3>
+      <p>Humidity sensor related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 18.</span> Relative Humidity format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="8">SInt16</td>
+              <td rowspan="8">Unit：0.01 %RH
+                <br />Range：0.01 to 50.00 %RH
+                <br />Default：0x01F (45.00 %RH)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="4">SInt16</td>
+              <td rowspan="2">Unit：0.01 %RH
+                <br />Range：0.00 to 100.00 %RH
+                <br />Default：0x1F40 (80.00 %RH)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]
+              </td>
+              <td>L</td>
+              <td rowspan="2">Unit：0.01 %RH
+                <br />Range：0.00 to 100.00 %RH
+                <br />Default：0x0DAC (35.00 %RH)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-04">2.2.4 Ambient light (Characteristics UUID: 0x3015)</h3>
+      <p>Light sensor related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 19.</span> Ambient Light format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="8">SInt16</td>
+              <td rowspan="8">Unit：1 lx
+                <br />Range：1 to 2000 lx
+                <br />Default：0x00C8 (200 lx)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="4">SInt16</td>
+              <td rowspan="2">Unit：1 lx
+                <br />Range：10 to 10000 lx
+                <br />Default：0x07D0 (2000 lx)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]
+              </td>
+              <td>L</td>
+              <td rowspan="2">Unit：1 lx
+                <br />Range：10 to 10000 lx
+                <br />Default：0x00A (10 lx)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-05">2.2.5 UV Index (Characteristics UUID: 0x3016)</h3>
+      <p>UV sensor related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 20.</span> UV Index format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="8">SInt16</td>
+              <td rowspan="8">Unit：0.01
+                <br />Range：Index 0.00 to 11.00
+                <br />Default：0x012C　(3.00)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="4">SInt16</td>
+              <td rowspan="2">Unit：0.01
+                <br />Range：Index 0.00 to 11.00
+                <br />Default：0x0258 (6.00)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]
+              </td>
+              <td>L</td>
+              <td rowspan="2">Unit：0.01
+                <br />Range：Index 0.00 to 11.00
+                <br />Default：0x0000 (0.00)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-06">2.2.6 Pressure (Characteristics UUID: 0x3017)</h3>
+      <p>Barometric Pressure sensor related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 21.</span> Pressure format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="8">Unit：0.1 hPa
+                <br />Range：0.1 to 200.0 hPa
+                <br />Default：0x0032 (5.0 hPa)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.1 hPa
+                <br />Range：700.0 to 1100.0 hPa
+                <br />Default：0x2AF8 (1100.0 hPa)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]
+              </td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.1 hPa
+                <br />Range：700.0 to 1100.0 hPa
+                <br />Default：0x1B58 (700.0 hPa)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-07">2.2.7 Sound Noise (Characteristics UUID: 0x3018)</h3>
+      <p>Microphone related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 22.</span> Sound Noise format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="8">Unit：0.01 dB
+                <br />Range：0.01 to 50.00 dB
+                <br />Default：0x07D0 (20.00 dB)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.01 dB
+                <br />Range：40.00 to 85.00 dB
+                <br />Default：0x1B58 dB (70.00)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]
+              </td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.01 dB
+                <br />Range：40.00 to 85.00 dB
+                <br />Default：0x0FA0 (40.00 dB)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-08">2.2.8 Discomfort index (Characteristics UUID: 0x3019)</h3>
+      <p>Discomfort Index related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 23.</span> Discomfort index format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="8">Unit：0.01
+                <br />Range：0.01 to 50.00
+                <br />Default：0x03E8 (10.00)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.01
+                <br />Range：55.00 to 85.00
+                <br />Default：0x1F40 (80.00)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]
+              </td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.01
+                <br />Range：55.00 to 85.00
+                <br />Default：0x157C (55.00)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-02-09">2.2.9 Heat stroke (Characteristics UUID: 0x301A)</h3>
+      <p>Heatstroke risk factor related event settings． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 24.</span> Heat stroke format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2">Event Enable/Disable</td>
+              <td>UInt8</td>
+              <td>Bit 7-6 : RFU
+                <br />Bit 5 : Simple threshold [lower limit]
+                <br />Bit 4 : Simple threshold [upper limit]
+                <br />Bit 3 : Changing trend [decline/term]
+                <br />Bit 2 : Changing trend [rise/term]
+                <br />Bit 1 : Changing trend [decline/previous]
+                <br />Bit 0 : Changing trend [rise/previous]
+                <br />Enable: 1, Disable: 0
+                <br />Default：0x00
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td rowspan="2">Changing trend threshold [rise/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="8">Unit：0.01 degC
+                <br />Range：0.01 to 30.00 degC
+                <br />Default：0x012C (3.00 degC)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td rowspan="2">Changing trend threshold [decline/previous]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td rowspan="2">Changing trend threshold [rise/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td rowspan="2">Changing trend threshold [decline/term]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td rowspan="2">Simple threshold [upper limit]</td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.01 degC
+                <br />Range：25 to 40 degC
+                <br />Default：0x0AF0 (28.00 degC)</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td rowspan="2">Simple threshold [lower limit]
+              </td>
+              <td>L</td>
+              <td rowspan="2">SInt16</td>
+              <td rowspan="2">Unit：0.01 degC
+                <br />Range：25 to 40 degC
+                <br />Default：0x09C4 (25.00 degC)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td colspan="2">Term for changing trend (Number of Measurements)</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x06 (6 count)</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td colspan="2">Moving average number</td>
+              <td>UInt8</td>
+              <td>Unit：1 count
+                <br />Range：1 to 8 count
+                <br />Default：0x01 (1 count)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <hr>
+      <h2 id="idx-02-03">2.3. Control Service (Service UUID: 0x3030)</h2>
+      <p>Read and Write device control parameters.</p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 25.</span> List of Characteristics in Control Service
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th rowspan="2" >Characteristics UUID </th>
+              <th rowspan="2" >Characteristics </th>
+              <th colspan="4" >Properties </th>
+              <th rowspan="2" >Byte </th>
+            </tr>
+            <tr>
+              <th >R </th>
+              <th >W </th>
+              <th >N </th>
+              <th >I </th>
+            </tr>
+            <tr>
+              <td>0x3031</td>
+              <td>Time information</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>　</td>
+              <td>　</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>0x3032</td>
+              <td>LED on duration</td>
+              <td>　</td>
+              <td>&#10004;</td>
+              <td>　</td>
+              <td>　</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>0x3033</td>
+              <td>Error status</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>0x3034</td>
+              <td>Trigger</td>
+              <td>　</td>
+              <td>&#10004;</td>
+              <td>　</td>
+              <td>　</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-03-01">2.3.1 Time information (Characteristics UUID: 0x3031)</h3>
+      <p>Set UNIX TIME from the Central device for time adjustment of the recording data in the flash memory. Time information based on this setting is recorded for each page of the flash memory. </p>　
+      <div class="well well-sm">* Note: Memory recording of measured data is not started unless time set to this Characteristic.</div>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 26.</span> Time information format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="4" >UNIX TIME</td>
+              <td>0</td>
+              <td rowspan="4" >UInt32</td>
+              <td rowspan="4" >Unit：1 sec
+                <br />Range：1970/1/1 0:00:01 to 2106/2/7 6:28:15</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-03-02">2.3.2 LED on duration (Characteristics UUID: 0x3032)</h3>
+      <p>With this setting, embedded LED lights for the specified time period. It can be used for identifying the sensor which is currently connected, such as when there are a plurality of sensors.</p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 27.</span> LED on duration format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th>Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>LED on duration</td>
+              <td>UInt8</td>
+              <td>Unit：1 sec
+                <br />Range：1 to 10 sec</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-03-03">2.3.3 Error status (Characteristics UUID: 0x3033)</h3>
+      <p>Various error conditions of the sensor are indicated by a bit field. The error state can be reset by writing 0 from the Central device. *Just reading this characteristic does not reset the state. </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 28.</span> Error status format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th>Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>Sensor Status</td>
+              <td>UInt8</td>
+              <td>Bit 7：RFU
+                <br />Bit 6：Error: Accelerometer*
+                <br />Bit 5：Error: Microphone
+                <br />Bit 4：Error: Barometric Pressure sensor
+                <br />Bit 3：Error: UV sensor
+                <br />Bit 2：Error: Light sensor
+                <br />Bit 1：Error: Humidity sensor
+                <br />Bit 0：Error: Temperature sensor
+                <br />*valid only with built-in Accelerometer type</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>CPU Status</td>
+              <td>UInt8</td>
+              <td>Bit 7-2：RFU
+                <br />Bit 1：Boot default setting
+                <br />Bit 0：Flash memory verify error</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Battery Status</td>
+              <td>UInt8</td>
+              <td>Bit 7-2：RFU
+                <br />Bit 1：Error in reading battery voltage
+                <br />Bit 0：Battery Low</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>RFU</td>
+              <td>UInt8</td>
+              <td>Bit 7-0：RFU</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-03-04">2.3.4 Trigger (Characteristics UUID: 0x3034)</h3>
+      <p>When 0x01 is set for Disconnection of this Characteristic, the connection is closed from the sensor side. After setting 0x01 for DFU Service, subsequent Service Discovery operation can discover hidden DFU Service. </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 29.</span> Trigger format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th>Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>Disconnection</td>
+              <td>UInt8</td>
+              <td>0x00：None
+                <br />0x01：Disconnect
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>DFU Service Enable / Disable</td>
+              <td>UInt8</td>
+              <td>0x00：Disable
+                <br />0x01：Enable
+              </td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <hr>
+      <h2 id="idx-02-04">2.4. Parameter Service (Service UUID: 0x3040)</h2>
+      <p>Read and Write the settings on Bluetooth communication parameters． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 30.</span> List of Characteristics in BLE Parameter Service
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th rowspan="2" >Characteristics UUID </th>
+              <th rowspan="2" >Characteristics </th>
+              <th rowspan="2" >Contents </th>
+              <th colspan="4" >Properties </th>
+              <th rowspan="2" >Byte </th>
+            </tr>
+            <tr>
+              <th >R </th>
+              <th >W </th>
+              <th >N </th>
+              <th >I </th>
+            </tr>
+            <tr>
+              <td>0x3041</td>
+              <td>UUIDs</td>
+              <td>UUID, Major, Minor</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>　</td>
+              <td>　</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>0x3042</td>
+              <td>ADV setting</td>
+              <td>Advertise setting</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>　</td>
+              <td>　</td>
+              <td>10</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-04-01">2.4.1 UUIDs (Characteristics UUID: 0x3041)</h3>
+      <p>Specify UUID to be sent in Beacon Mode = Beacon(Advertise Format (A))． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 31.</span> UUIDs format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th colspan="2" >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan="2" rowspan="16" >UUID</td>
+              <td rowspan="16" >Uint128</td>
+              <td rowspan="16" >Default： 0C4C3000-7700-46F4-AA96D5E974E32A54</td>
+            </tr>
+            <tr>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>13</td>
+            </tr>
+            <tr>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td rowspan="2" >Major</td>
+              <td>L</td>
+              <td rowspan="2" >UInt16</td>
+              <td rowspan="2" >Default：0x0000
+                <br />*Not used</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td rowspan="2" >Minor</td>
+              <td>L</td>
+              <td rowspan="2" >UInt16</td>
+              <td rowspan="2" >Default：0x0000
+                <br />*Not used</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>H</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-04-02">2.4.2 ADV setting (Characteristics UUID: 0x3042)</h3>
+      <p>Set various Advertisement related parameters. Time Information is cleared to zero (0) when Beacon Mode is changed, so Time Information must be set to start data recording again. *After changing the settings of this characteristic, it is necessary to make power cycle by removing and inserting battery. </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 32.</span> ADV setting format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th>Byte </th>
+              <th colspan="2">Field </th>
+              <th>Format </th>
+              <th>Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="2">ADV_IND Advertise interval</td>
+              <td>L</td>
+              <td rowspan="2">UInt16</td>
+              <td rowspan="2">Advertise interval
+                <br />Unit：0.625ms
+                <br />Range：0x0320(500ms) to 0x4000(10.24s)
+                <br />Default：0x0808 (1285ms)</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td rowspan="2">ADV_NONCON_IND Advertise interval</td>
+              <td>L</td>
+              <td rowspan="2">UInt16</td>
+              <td rowspan="2">Unit：0.625ms
+                <br />Range：0x00A0(100ms) to 0x4000(10.24s)
+                <br />Default：0x00A0 (100ms)
+                <br />*Not used</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td rowspan="2">Transmission period &nbsp;in Limited Broadcaster</td>
+              <td>L</td>
+              <td rowspan="2">UInt16</td>
+              <td rowspan="2">Set transmission period per cycle when Beacon Mode 0x03, 0x05 Limited Broadcaster
+                <br />Unit：1 sec
+                <br />Range：0x0001(1s) to 0x3FFF(16383s)
+                <br />Default：0x000A (10s)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td rowspan="2">Silent period in Limited Broadcaster</td>
+              <td>L</td>
+              <td rowspan="2">UInt16</td>
+              <td rowspan="2">Set silent period per cycle when Beacon Mode 0x03, 0x05 Limited Broadcaster
+                <br />Unit：1 sec
+                <br />Range：0x0001(1s) to 0x3FFF(16383s)
+                <br />Default：0x0032 (50s)</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>H</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td colspan="2">Beacon Mode</td>
+              <td>UInt8</td>
+              <td>Range：0x00(0) to 0x0A(10)
+                <br />Default：0x08 (8)
+                <br />*Refer to Table 33. Beacon Mode for details</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td colspan="2">Tx Power</td>
+              <td>SInt8</td>
+              <td>Unit：dBm
+                <br />Range：-20, -16, -12, -8, -4, 0, 4 dBm
+                <br />Default：0x00 (0 dBm)</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 33.</span> Beacon Mode
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th rowspan="2">Beacon Mode </th>
+              <th rowspan="2">Name </th>
+              <th rowspan="2">Shortened Device Name </th>
+              <th rowspan="2">Device Name </th>
+              <th colspan="2">Adv. Format </th>
+            </tr>
+            <tr>
+              <td>Normal condition</td>
+              <td>Event detected</td>
+            </tr>
+            <tr>
+              <td>0x00</td>
+              <td>Event Beacon (SCAN RSP)</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+              <td>(B)</td>
+              <td>(A)/(B) Alternate</td>
+            </tr>
+            <tr>
+              <td>0x01</td>
+              <td>Standard Beacon</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+              <td>(B)</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>0x02</td>
+              <td>General Broadcaster 1</td>
+              <td>IM</td>
+              <td>IM-BL01</td>
+              <td>(D)</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>0x03</td>
+              <td>Limited Broadcaster 1</td>
+              <td>IM</td>
+              <td>IM-BL01</td>
+              <td>(D)</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>0x04</td>
+              <td>General Broadcaster 2</td>
+              <td>EP</td>
+              <td>EP-BL01</td>
+              <td>(E)</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>0x05</td>
+              <td>Limited Broadcaster 2</td>
+              <td>EP</td>
+              <td>EP-BL01</td>
+              <td>(E)</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>0x07</td>
+              <td>Alternate Beacon</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+              <td>(A)/(B) Alternate</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>0x08</td>
+              <td>Event Beacon (ADV)</td>
+              <td>Env</td>
+              <td>EnvSensor-BL01</td>
+              <td>(C)</td>
+              <td>(A)/(C) Alternate</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="well well-sm">* (A to E): refer to 3. Advertise Format for more details</div>
+      <br />
+      <hr>
+      <h2 id="idx-02-05">2.5. DFU Service (Service UUID: 0x3050)</h2>
+      <p>Perform Firmware update via BLE communication． </p>　
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 34.</span> List of Characteristic in DFU Service
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th rowspan="2">Attribute UUID </th>
+              <th rowspan="2">Characteristics </th>
+              <th colspan="4">Properties </th>
+              <th rowspan="2">Byte </th>
+            </tr>
+            <tr>
+              <th>R </th>
+              <th>W </th>
+              <th>N </th>
+              <th>I </th>
+            </tr>
+            <tr>
+              <td>0x3051</td>
+              <td>DFU Control Point</td>
+              <td>&nbsp;</td>
+              <td>&#10004;</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>0x3052</td>
+              <td>DFU Packet</td>
+              <td>&nbsp;</td>
+              <td>&#10004;*</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>0x3053</td>
+              <td>DFU Revision</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="well well-sm">* "W" in DFU Packet means Write Without Response.</div>
+      <br />
+      <hr>
+      <h2 id="idx-02-06">2.6. Generic Access Service (Service UUID: 0x1800)</h2>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 35.</span> List of Characteristics in Generic Access Service
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th rowspan="2">Attribute UUID </th>
+              <th rowspan="2">Characteristics </th>
+              <th rowspan="2">Contents </th>
+              <th colspan="4">Properties </th>
+              <th rowspan="2">Byte </th>
+            </tr>
+            <tr>
+              <th >R </th>
+              <th >W </th>
+              <th >N </th>
+              <th >I </th>
+            </tr>
+            <tr>
+              <td>0x2A00</td>
+              <td>Device Name</td>
+              <td>Name</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td>0x2A01</td>
+              <td>Appearance</td>
+              <td>Category</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td rowspan="4" >0x2A04</td>
+              <td rowspan="4" >Peripheral Preferred Connection Parameters</td>
+              <td>Minimum connection interval</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Maximum connection interval</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Slave latency</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Connection supervision timeout multiplier</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-06-01">2.6.1 Device Name (Characteristics UUID: 0x2A00)</h3>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 36.</span> Device Name format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="14" >Device Name</td>
+              <td rowspan="14" >Utf8s</td>
+              <td>&ldquo;E&rdquo; 0x45</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>&ldquo;n&rdquo; 0x6E</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>&ldquo;v&rdquo; 0x76</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>&ldquo;S&rdquo; 0x53</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>&ldquo;e&rdquo; 0x65</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>&ldquo;n&rdquo; 0x6E</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>&ldquo;s&rdquo; 0x73</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>&ldquo;o&rdquo; 0x6F</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>&ldquo;r&rdquo; 0x72</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>"-" 0x2D</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>"B" 0x42</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>"L" 0x4C</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>"0" 0x30</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>"1" 0x31</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="well well-sm">
+        <p>* When in Beacon Mode 0x02, 0x03: IM-BL01 (7 Byte)</p>
+        <p>* When in Beacon Mode 0x04, 0x05: EP-BL01 (7 Byte)</p>
+      </div>
+      <br />
+      <h3 id="idx-02-06-02">2.6.2 Appearance (Characteristics UUID: 0x2A01)</h3>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 37.</span> Appearance format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th colspan="2" >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="2" >Category</td>
+              <td>L</td>
+              <td rowspan="2" >16bit</td>
+              <td rowspan="2" >0 : Unknown</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>H</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-06-03">2.6.3 Peripheral Preferred Connection Parameters (Characteristics UUID: 0x2A04)</h3>
+      <p>Connection parameter update is performed 5 seconds after Connection, and thereafter 3 times with 30 seconds interval. </p>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 38.</span> Peripheral Preferred Connection Parameters format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="2" >Minimum connection interval</td>
+              <td rowspan="2" >16bit</td>
+              <td rowspan="2" >Unit：1.25ms
+                <br />Value：0x0014(25ms)</td>
+            </tr>
+            <tr>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td rowspan="2" >Maximum connection interval</td>
+              <td rowspan="2" >16bit</td>
+              <td rowspan="2" >Unit：1.25ms
+                <br />Value：0x0028(50ms)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td rowspan="2" >Slave Latency</td>
+              <td rowspan="2" >16bit</td>
+              <td rowspan="2" >Value：0x0004 (4)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td rowspan="2" >Connection Supervision Timeout Multiplier</td>
+              <td rowspan="2" >16bit</td>
+              <td rowspan="2" >Unit：10ms
+                <br />Value：0x0190 (4s)</td>
+            </tr>
+            <tr>
+              <td>7</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <hr>
+      <h2 id="idx-02-07">2.7. Device Information Service (Service UUID: 0x180A)</h2>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 39.</span> List of Characteristics in Device Information Service
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th rowspan="2" >Attribute UUID </th>
+              <th rowspan="2" >Characteristics </th>
+              <th colspan="4" >Properties </th>
+              <th rowspan="2" >Byte </th>
+            </tr>
+            <tr>
+              <th >R </th>
+              <th >W </th>
+              <th >N </th>
+              <th >I </th>
+            </tr>
+            <tr>
+              <td>0x2A24</td>
+              <td>Model Number String</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>0x2A25</td>
+              <td>Serial Number String</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>0x2A26</td>
+              <td>Firmware Revision String</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>0x2A27</td>
+              <td>Hardware Revision String</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>0x2A29</td>
+              <td>Manufacturer Name String</td>
+              <td>&#10004;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-07-01">2.7.1 Model Number String (Characteristics UUID: 0x2A24)</h3>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 40.</span> Model Number String format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="10" >Model Number</td>
+              <td rowspan="10" >Utf8s</td>
+              <td>"2" 0x32</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>"J" 0x4A</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>"C" 0x43</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>"I" 0x49</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>"E" 0x45</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>"-" 0x2D</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>"B" 0x42</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>"L" 0x4C</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>"0" 0x30</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>"1" 0x31</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-07-02">2.7.2 Serial Number String (Characteristics UUID: 0x2A25)</h3>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 41.</span> Serial Number String format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="10" >Serial Number</td>
+              <td rowspan="10" >Utf8s</td>
+              <td>"0" to "3" 0x30 to 0x33</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>"0" to "9", "X", "Y", "Z" 0x30 to 0x39, 0x58, 0x59, 0x5A</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>&ldquo;M&rdquo; 0x4D</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>"Y" 0x59</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-07-03">2.7.3 Firmware Revision String (Characteristics UUID: 0x2A26)</h3>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 42.</span> Firmware Revision String format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="5" >Firmware Revision</td>
+              <td rowspan="5" >Utf8s</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>"." 0x2E</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-07-04">2.7.4 Hardware Revision String (Characteristics UUID: 0x2A27)</h3>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 43.</span> Hardware Revision String format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="5" >Hardware Revision</td>
+              <td rowspan="5" >Utf8s</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>"." 0x2E</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>"0" to "9" 0x30 to 0x39</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <h3 id="idx-02-07-05">2.7.5 Manufacturer Name String (Characteristics UUID: 0x2A29)</h3>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 44.</span> Manufacturer Name String format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <th >Byte </th>
+              <th >Field </th>
+              <th >Format </th>
+              <th >Contents </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td rowspan="5" >Manufacturer Name</td>
+              <td rowspan="5" >Utf8s</td>
+              <td>"O" 0x4F</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>"M" 0x4D</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>"R" 0x52</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>"O" 0x4F</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>"N" 0x4E</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <hr>
+      <h1 id="idx-03">3. Advertise format</h1>
+      <p>The following Advertise format can be selected by Beacon Mode in ADV Setting.
+      </P>
+      <div class="list-group">
+        <a href="#idx-03-01" class="list-group-item">
+          <h4 class="list-group-item-heading">(A) Beacon</h4>
+          <p class="list-group-item-text">iBeacon equivalent format. Major = Latest Page number, Minor = Row number．</p>
+        </a>
+        <a href="#idx-03-02" class="list-group-item">
+          <h4 class="list-group-item-heading">(B) Connection Advertise 1</h4>
+          <p class="list-group-item-text">This format contains Flag and Local Name. The latest sensor data, Latest page information, and event flag are included in SCAN_RSP Payload after receiving ADV_IND.</p>
+        </a>
+        <a href="#idx-03-03" class="list-group-item">
+          <h4 class="list-group-item-heading">(C) Connection Advertise 2</h4>
+          <p class="list-group-item-text">This format contains Flag, Local Name, Latest page information, and event flag. There is no SCAN_RSP and sensor data is not included.</p>
+        </a>
+        <a href="#idx-03-04" class="list-group-item">
+          <h4 class="list-group-item-heading">(D) Sensor ADV 1</h4>
+          <p class="list-group-item-text">This format contains the latest sensor data including Flag, Local Name, and acceleration information (with built-in Accelerometer type only).</p>
+        </a>
+        <a href="#idx-03-05" class="list-group-item">
+          <h4 class="list-group-item-heading">(E) Sensor ADV 2</h4>
+          <p class="list-group-item-text">This format contains Flag, Local Name, and latest sensor data.</p>
+        </a>
+      </div>
+      <div class="well well-sm">* The Battery Voltage (Battery voltage) in Advertise Format shall be expressed as follows. ((Acquired value + 100) x 10) mV</div>
+      <br />
+      <hr>
+      <h2 id="idx-03-01">3.1. (A) Beacon</h2>
+      <p>
+        <span class="label label-default">Table 45.</span> (A) Beacon format
+      </p>
+      <img src="../../images/af_a_beacon_format.png" class="img-responsive img-thumbnail" alt="(A) Beacon format">
+      <br />
+      <hr>
+      <h2 id="idx-03-02">3.2. (B) Connection Advertise 1</h2>
+      <h3 id="idx-03-02-01">3.2.1 Advertise (ADV_IND)</h3>
+      <p>
+        <span class="label label-default">Table 46.</span> (B) Connection Advertise 1 - Advertise (ADV_IND) format
+      </p>
+      <img src="../../images/af_b_connection_adv_1_adv_format.png" class="img-responsive img-thumbnail" alt="(B) Connection Advertise 1 - Advertise (ADV_IND) format">
+      <br />
+      <h3 id="idx-03-02-02">3.2.2 Scan Response (SCAN_RSP)</h3>
+      <p>
+        <span class="label label-default">Table 47.</span> (B) Connection Advertise 1 - Scan Response (SCAN_RSP) format
+      </p>
+      <img src="../../images/af_b_connection_adv_1_sr_format.png" class="img-responsive img-thumbnail" alt="(B) Connection Advertise 1 - Scan Response (SCAN_RSP) format">
+      <br />
+      <hr>
+      <h2 id="idx-03-03">3.3. (C) Connection Advertise 2 (ADV_IND)</h2>
+      <p>
+        <span class="label label-default">Table 48.</span> (C) Connection Advertise 2 (ADV_IND) format
+      </p>
+      <img src="../../images/af_c_connection_ adv_2_format.png" class="img-responsive img-thumbnail" alt="(C) Connection Advertise 2 (ADV_IND) format">
+      <div class="well well-sm">* Page information = (UInt16_t)((page &lt;&lt; 4) | row)</div>
+      <br />
+      <hr>
+      <h2 id="idx-03-04">3.4. (D) Sensor ADV 1 (ADV_IND)</h2>
+      <p>
+        <span class="label label-default">Table 49.</span> (D) Sensor ADV 1 (ADV_IND) format
+      </p>
+      <img src="../../images/af_d_sensor_adv_1_format.png" class="img-responsive img-thumbnail" alt="(D) Sensor ADV 1 (ADV_IND) format">
+      <div class="well well-sm">*Acceleration values are valid only with built-in Accelerometer type. Otherwise, these will be zero.</div>
+      <br />
+      <hr>
+      <h2 id="idx-03-05">3.5. (E) Sensor ADV 2 (ADV_IND)</h2>
+      <p>
+        <span class="label label-default">Table 50.</span> (E) Sensor ADV 2 (ADV_IND) format
+      </p>
+      <img src="../../images/af_e_sensor_adv_2_format.png" class="img-responsive img-thumbnail" alt="(E) Sensor ADV 2 (ADV_IND) format">
+      <br />
+      <hr>
+      <h2>Revision history</h2>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <span class="label label-default">Table 44.</span> Manufacturer Name String format
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-vcenter">
+          <tbody>
+            <tr>
+              <td>
+                <strong>#</strong>
+              </td>
+              <td>
+                <strong>Revision</strong>
+              </td>
+              <td>
+                <strong>Date</strong>
+              </td>
+              <td>
+                <strong>Changes</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>1</strong>
+              </td>
+              <td>1.0</td>
+              <td>12/01/2016</td>
+              <td>Released</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>2</strong>
+              </td>
+              <td>1.1</td>
+              <td>12/02/2016</td>
+              <td>Added default values in setting parameters.</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>3</strong>
+              </td>
+              <td>1.2</td>
+              <td>01/07/2017</td>
+              <td>Added annotation on Accelerometer</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>4</strong>
+              </td>
+              <td>1.3</td>
+              <td>02/03/2017</td>
+              <td>Correct a typo</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>&nbsp;</strong>
+              </td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- /container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../js/jquery.min.js"><\/script>')</script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/marked.js"></script>
+    <script src="../../js/jquery.smooth-scroll.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          var target = $("#markdown_content");
+          $.ajax({
+            url: target[0].attributes["src"].value,
+          }).success(function(data){
+            target.append(marked(data));
+          }).error(function(data){
+            target.append("This content failed to load.");
+          });
+        });
+    </script>
+    <script>
+      $(function() {
+        $("#navbar").load("navbar.html");
+      });
+    </script>
+    <script>
+      $('a').smoothScroll();
+    </script>
+    <script>
+      $('#collapseListGroup1').collapse("hide");
+    </script>
+  </body>
+</html>
