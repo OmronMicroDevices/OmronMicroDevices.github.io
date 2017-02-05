@@ -1,2 +1,1 @@
-[OMRON Micro Devices Github Pages](https://OmronMicroDevices.github.io/)
-
+[OMRON Micro Devices - Resources & Samples](https://OmronMicroDevices.github.io/)
