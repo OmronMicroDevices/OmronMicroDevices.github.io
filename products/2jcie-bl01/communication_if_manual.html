@@ -2604,6 +2604,7 @@
       <h3 id="idx-02-04-02">2.4.2 ADV setting (Characteristics UUID: 0x3042)</h3>
       <p>Set various Advertisement related parameters. Time Information is cleared to zero (0) when Beacon Mode is changed, so Time Information must be set to start data recording again.  </p>　
       <div class="well well-sm">* After changing the settings of this characteristic, it is necessary to make power cycle by removing and inserting battery. </div>
+      <div class="well well-sm">* It makes difficult to establish a connection with the central device in a very short “Transmission period in Limited Broadcaster” setting. </div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -3446,6 +3447,9 @@
         <p>* The Battery Voltage (Battery voltage) in Advertise Format shall be expressed as follows.</p>
         <p> Battery Voltage = ((Acquired value + 100) x 10) mV</p>
       </div>
+      <div class="well well-sm">
+        <p>* Event flag (sensor name + Evt) in Advertise Format conforms to the bit field of 2.1.6 Event flag.</p>
+      </div>
       <br />
       <hr>
       <h2 id="idx-03-01">3.1. (A) Beacon</h2>
@@ -3533,6 +3537,17 @@
             <td>1.3</td>
             <td>02/03/2017</td>
             <td>Correct a typo</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>5</strong>
+            </td>
+            <td>1.4</td>
+            <td>09/12/2017</td>
+            <td>
+              - Added description on event data in Advertise Format</br>
+              - Added annotation on Transmission period in Limited Broadcaster
+            </td>
           </tr>
           <tr>
             <td>
